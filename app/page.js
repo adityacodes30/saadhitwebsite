@@ -3,8 +3,7 @@ import stl from "./page.module.css";
 import pill1 from "../public/pill1.png";
 import pill2 from "@/public/pill2.png";
 export default function Home() {
-  return (
-    <>
+  return (<div>
       <section className={stl.heroSection}>
         <div className={stl.heroText}>
           <h1>
@@ -14,6 +13,7 @@ export default function Home() {
         <Button text="Get Started" />
       </section>
       <img
+        className={stl.floating1}
         src="/pill1.png"
         style={{
           width: "7vw",
@@ -25,12 +25,13 @@ export default function Home() {
         alt="pill1"
       />
       <img
+        className={stl.floating2}
         src="/pill2.png"
         style={{
           width: "7vw",
           position: "relative",
           left: "75vw",
-          bottom: "2vh",
+          bottom: "0vh",
           marginBottom: "-10vh",
         }}
         alt="pill2"
@@ -43,8 +44,8 @@ export default function Home() {
             Saadhit is exactly that From launching successful marketing
             campaigns to writing technical literature , we do it all
           </p>
-  
       </section>
-    </>
+      </div>
+ 
   );
 }
