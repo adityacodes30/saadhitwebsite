@@ -2,8 +2,8 @@ import Button from "@/components/Button";
 import stl from "./page.module.css";
 import pill1 from "../public/pill1.png";
 import pill2 from "@/public/pill2.png";
-import Card1 from "../components/card1";
-import Card2 from "../components/card2";
+import Card1 from "../components/Card1";
+import Card2 from "../components/Card2";
 import Stepcard from "@/components/Stepcard";
 export default function Home() {
   return (
