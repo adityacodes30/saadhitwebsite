@@ -153,3 +153,22 @@
      position: sticky;
      top: 8vh;
 }
+
+
+.caseHeading
+{
+    font-size: 3rem;
+    text-align: center;
+   color: #756ed3;
+     
+}
+
+.caseSection
+{
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap : 5vh ;
+    padding-bottom: 5rem;
+}

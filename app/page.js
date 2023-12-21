@@ -5,6 +5,7 @@ import pill2 from "@/public/pill2.png";
 import Card1 from "../components/Card1";
 import Card2 from "../components/Card2";
 import Stepcard from "@/components/Stepcard";
+import Casecard from "@/components/Casecard";
 export default function Home() {
   return (
     <div>
@@ -69,8 +70,7 @@ export default function Home() {
           <Card2></Card2>
           <Card2></Card2>
           <Card2></Card2>
-        </div>
-        <div className={stl.whatCards}>
+
           <Card2></Card2>
           <Card2></Card2>
           <Card2></Card2>
@@ -85,21 +85,32 @@ export default function Home() {
           marginTop: "50px",
           flexDirection: "column",
           alignItems: "center",
-          
         }}
         className={stl.howSection}
       >
-      <h2 className={stl.howHeading}>Discover how we make the magic happen</h2>
-        <Stepcard color='white' top='20vh'></Stepcard>
-        <Stepcard color='#b6ddcb' top='25vh'></Stepcard>
-        <Stepcard color='#eccad1' top='30vh'></Stepcard>
-        <Stepcard color='#774fe7' top='35vh'></Stepcard>
-        
+        <h2 className={stl.howHeading}>
+          Discover how we make the magic happen
+        </h2>
+        <Stepcard color="white" top="20vh"></Stepcard>
+        <Stepcard color="#b6ddcb" top="25vh"></Stepcard>
+        <Stepcard color="#eccad1" top="30vh"></Stepcard>
+        <Stepcard color="#774fe7" top="35vh"></Stepcard>
       </section>
-     
 
       <section className={stl.caseSection}>
-      <h2 className={stl.howHeading}> Read how we do it</h2>
+        <h2 className={stl.caseHeading}>Case studies</h2>
+        <Casecard
+          title="Case Study 1"
+          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
+        ></Casecard>
+        <Casecard
+          title="Case Study 2"
+          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
+        ></Casecard>
+        <Casecard
+          title="Case Study 3"
+          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
+        ></Casecard>
       </section>
     </div>
   );
