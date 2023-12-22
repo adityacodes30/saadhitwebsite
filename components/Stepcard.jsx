@@ -1,5 +1,7 @@
 import React from 'react';
 
+import stl from './styles/stepcard.module.css';
+
 const Stepcard = (props) => {
   return (
     <div
@@ -11,8 +13,11 @@ const Stepcard = (props) => {
             top: props.top,
             borderRadius: "80px",
             marginBottom: "50px",
+            overflow: "hidden",
+            color: props.fontcolor,
           }}
-        ></div>
+
+        >   <span className={stl.num}>{props.no}</span> </div>
   );
 };
 

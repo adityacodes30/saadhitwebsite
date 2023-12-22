@@ -35,7 +35,7 @@ export default function Home() {
         style={{
           width: "7vw",
           position: "relative",
-          left: "75vw",
+          left: "65vw",
           bottom: "0vh",
           marginBottom: "-10vh",
         }}
@@ -91,10 +91,10 @@ export default function Home() {
         <h2 className={stl.howHeading}>
           Discover how we make the magic happen
         </h2>
-        <Stepcard color="white" top="20vh"></Stepcard>
-        <Stepcard color="#b6ddcb" top="25vh"></Stepcard>
-        <Stepcard color="#eccad1" top="30vh"></Stepcard>
-        <Stepcard color="#774fe7" top="35vh"></Stepcard>
+        <Stepcard color="white" top="20vh" no='01'></Stepcard>
+        <Stepcard color="#b6ddcb" top="25vh" no='02'></Stepcard>
+        <Stepcard color="#eccad1" top="30vh" no='03'></Stepcard>
+        <Stepcard color="#774fe7" top="35vh" no='04'></Stepcard>
       </section>
 
       <section className={stl.caseSection}>
@@ -102,10 +102,12 @@ export default function Home() {
         <Casecard
           title="Case Study 1"
           text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
+      
         ></Casecard>
         <Casecard
           title="Case Study 2"
           text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
+
         ></Casecard>
         <Casecard
           title="Case Study 3"
