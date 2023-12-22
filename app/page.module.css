@@ -15,6 +15,13 @@
 }
 
 .floating1 {  
+    width: 7vw;
+
+    position: relative ;
+    left: 12vw ;
+    bottom: 13vh ;
+    margin-bottom: -10vh ;
+
     animation-name: floating1;
     animation-duration: 2.7s;
     animation-iteration-count: infinite;
@@ -30,12 +37,19 @@
 }
 
 
-.floating2 {  
+.floating2 { 
+    width: 7vw;
+    
+    position: relative ;
+    left: 65vw ;
+    bottom: 0vh ;
+    margin-bottom: -10vh ;
+
     animation-name: floating2;
     animation-duration: 2.7s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
-    margin-left: 30px;
+   
     margin-top: 5px;
 }
 
@@ -150,8 +164,7 @@
     font-size: 3rem;
     text-align: center;
    color: #F29426;
-     position: sticky;
-     top: 8vh;
+     
 }
 
 
@@ -171,4 +184,132 @@
     align-items: center;
     gap : 5vh ;
     padding-bottom: 5rem;
+}
+
+
+@media (max-width: 768px)
+{
+    .heroText
+    {
+        font-size: 1.8rem;
+        width: 90%;
+    }
+
+    .aboutSection
+    {
+        padding: 0;
+        
+    }
+
+
+    .aboutHeading
+{
+    font-size: 1.8rem;
+    text-align: center;
+    width: 80%;
+}
+
+.aboutText
+{
+    font-size: 1.25rem;
+    text-align: center;
+    width: 90%;
+    position: relative;
+    bottom: 0;
+}
+
+.floating1 
+{
+    width: 50px;
+    left:0vw ;
+}
+
+.floating2 
+{
+    width: 50px;
+    left:55vw ;
+    top:5vh;
+}
+
+.subAboutSection
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.subAboutHeading
+{
+    font-size: 2.5rem;
+    
+}
+
+.subAboutText
+{
+    font-size: 1.5rem;
+    text-align: center;
+    width: 90%;
+    color: #7E7474 ;
+    position: relative;
+    bottom: 5vh;
+}
+
+
+.subAboutCards
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    
+    gap:5vh;
+  
+    
+}
+
+
+.whatSection
+{
+    padding-top: 0vh;
+    
+}
+
+.whatHeading
+{
+    font-size: 2.5rem;
+}
+
+.whatText
+{
+    font-size: 1.5rem;
+    text-align: center;
+    width: 90%;
+    
+    position: relative;
+    bottom: 30px;
+}
+
+.whatCards
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 0vh;
+    margin-bottom: 3vh;
+    gap:5vh;
+    position: relative;
+    bottom: 0px;
+}
+
+.howHeading
+{
+    font-size: 2rem;
+     
+}
+
 }

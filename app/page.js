@@ -20,25 +20,13 @@ export default function Home() {
       <img
         className={stl.floating1}
         src="/pill1.png"
-        style={{
-          width: "7vw",
-          position: "relative",
-          left: "12vw",
-          bottom: "13vh",
-          marginBottom: "-10vh",
-        }}
+       
         alt="pill1"
       />
       <img
         className={stl.floating2}
         src="/pill2.png"
-        style={{
-          width: "7vw",
-          position: "relative",
-          left: "65vw",
-          bottom: "0vh",
-          marginBottom: "-10vh",
-        }}
+       
         alt="pill2"
       />
       <section className={stl.aboutSection}>
@@ -82,7 +70,7 @@ export default function Home() {
         style={{
           display: "flex",
           justifyContent: "center",
-          marginTop: "50px",
+          marginTop: "20px",
           flexDirection: "column",
           alignItems: "center",
         }}
@@ -91,10 +79,10 @@ export default function Home() {
         <h2 className={stl.howHeading}>
           Discover how we make the magic happen
         </h2>
-        <Stepcard color="white" top="20vh" no='01'></Stepcard>
-        <Stepcard color="#b6ddcb" top="25vh" no='02'></Stepcard>
-        <Stepcard color="#eccad1" top="30vh" no='03'></Stepcard>
-        <Stepcard color="#774fe7" top="35vh" no='04'></Stepcard>
+        <Stepcard color="white" top="10vh" no='01'></Stepcard>
+        <Stepcard color="#b6ddcb" top="15vh" no='02'></Stepcard>
+        <Stepcard color="#eccad1" top="20vh" no='03'></Stepcard>
+        <Stepcard color="#774fe7" top="25vh" no='04'></Stepcard>
       </section>
 
       <section className={stl.caseSection}>
