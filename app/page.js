@@ -6,6 +6,7 @@ import Card1 from "../components/Card1";
 import Card2 from "../components/Card2";
 import Stepcard from "@/components/Stepcard";
 import Casecard from "@/components/Casecard";
+import Form from "@/components/form";
 export default function Home() {
   return (
     <div>
@@ -102,6 +103,8 @@ export default function Home() {
           text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
         ></Casecard>
       </section>
+
+    <Form></Form>
     </div>
   );
 }

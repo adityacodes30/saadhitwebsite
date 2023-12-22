@@ -23,7 +23,7 @@ export default function Navbar() {
       </div>
       <div className={stl.smallnavlinks}>
       <span >
-          {isopen ? (
+          {!isopen ? (
             <span onClick={toggle} style={{cursor:'pointer'}} >O</span>
           ) : (
             <>
