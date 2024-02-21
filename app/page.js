@@ -84,6 +84,7 @@ export default function Home() {
         <Stepcard color="#b6ddcb" top="15vh" no='02'></Stepcard>
         <Stepcard color="#eccad1" top="20vh" no='03'></Stepcard>
         <Stepcard color="#774fe7" top="25vh" no='04'></Stepcard>
+        <Stepcard color="#b6ddcb" top="30vh" no='05'></Stepcard>
       </section>
 
       <section className={stl.caseSection}>

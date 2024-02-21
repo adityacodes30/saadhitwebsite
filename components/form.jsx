@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form";
 import stl from "./styles/form.module.css";
 
-import bt from './styles/button.module.css'
+import bt from "./styles/button.module.css";
 
 function Form() {
   const {
@@ -15,6 +15,18 @@ function Form() {
 
   const onSubmit = (data) => {
     console.log(data);
+    fetch(
+      "https://script.google.com/macros/s/AKfycbzVj9EVFRal27d9GZO42-4xqCWmdDNdvYWPjgH5a2P7MSXXbrxurFVJFxQBPaYlfKrF/exec?action=addUser",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: data,
+      }
+    ).then((res) => {
+      console.log(res.text);
+    });
     reset();
   };
 
@@ -27,7 +39,7 @@ function Form() {
           className={stl.inputfield}
           {...register("name", { required: true })}
         />
-        {errors.name && <span className={stl.req} >This field is required</span>}
+        {errors.name && <span className={stl.req}>This field is required</span>}
       </div>
 
       <div className={stl.input}>
@@ -36,7 +48,9 @@ function Form() {
           className={stl.inputfield}
           {...register("email", { required: true })}
         />
-        {errors.email && <span className={stl.req}>This field is required</span>}
+        {errors.email && (
+          <span className={stl.req}>This field is required</span>
+        )}
       </div>
 
       <div className={stl.input}>
@@ -45,7 +59,9 @@ function Form() {
           className={stl.inputfield}
           {...register("phone", { required: true, minLength: 10 })}
         />
-        {errors.phone && <span className={stl.req}>This field is required</span>}
+        {errors.phone && (
+          <span className={stl.req}>This field is required</span>
+        )}
       </div>
       <input className={bt.btn} type="submit" />
     </form>
