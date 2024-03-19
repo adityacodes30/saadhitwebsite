@@ -45,9 +45,9 @@ export default function Home() {
           Discover how we do things here at Saadhit
         </p>
         <div className={stl.subAboutCards}>
-          <Card1 source={pill1} text=" highly skilled " />
-          <Card1 source={pill1} text=" highly skilled " />
-          <Card1 source={pill1} text=" highly skilled " />
+          <Card1 source={pill1} text="Industry Experience" />
+          <Card1 source={pill1} text=" Timely Delivery " />
+          <Card1 source={pill1} text=" Professional " />
         </div>
       </section>
 
