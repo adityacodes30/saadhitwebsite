@@ -13,7 +13,7 @@ export default function Home() {
       <section className={stl.heroSection}>
         <div className={stl.heroText}>
           <h1>
-           Website under construction
+            Saadhit is an One Stop solution for all your Pharma Business needs
           </h1>
         </div>
         <Button text="Get Started" />
@@ -33,7 +33,9 @@ export default function Home() {
       <section className={stl.aboutSection}>
         <h1 className={stl.aboutHeading}>Who We Are</h1>
         <p className={stl.aboutText}>
-        At Saadhit, our team comprises seasoned professionals with extensive expertise in both pharmaceuticals and marketing. Each member brings over 15 years of industry experience, having worked with renowned multinational pharmaceutical companies. With this wealth of knowledge and diverse backgrounds, we're uniquely positioned to deliver exceptional marketing solutions tailored to the pharmaceutical industry. 
+          Imagine a place where you could go to get just about anything done.
+          Saadhit is exactly that From launching successful marketing campaigns
+          to writing technical literature , we do it all
         </p>
       </section>
 
