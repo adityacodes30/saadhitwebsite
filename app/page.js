@@ -13,7 +13,7 @@ export default function Home() {
       <section className={stl.heroSection}>
         <div className={stl.heroText}>
           <h1>
-            Saadhit is an One Stop solution for all your Pharma Business needs
+           Under construction
           </h1>
         </div>
         <Button text="Get Started" />

@@ -37,7 +37,7 @@ jobs:
     - name: Send Deployment Request to Deployr
       if: success()
       run: |
-        DEPLOY_URL="https://saadhit.com:6213"
+        DEPLOY_URL="https://saadhit.com/deployr/deploy"
         echo "Triggering deployment to Deployr at $DEPLOY_URL..."
         response=$(curl --write-out "%{http_code}" --silent --output /dev/null -X POST "$DEPLOY_URL/deploy")
 
