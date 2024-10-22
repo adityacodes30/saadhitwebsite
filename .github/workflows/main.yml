@@ -1,0 +1,49 @@
+name: CI/CD Pipeline for Deployr
+
+on:
+  push:
+    branches:
+      - main  # Change this if needed
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18  # Specify your Node.js version
+
+    - name: Install Dependencies
+      run: |
+        npm install
+
+    - name: Build Next.js App
+      run: |
+        npm run build
+      env:
+        CI: true
+
+    - name: Verify Build Success
+      if: failure()
+      run: |
+        echo "Next.js build failed. Stopping deployment."
+        exit 1
+
+    - name: Send Deployment Request to Deployr
+      if: success()
+      run: |
+        DEPLOY_URL="https://saadhit.com:6213"
+        echo "Triggering deployment to Deployr at $DEPLOY_URL..."
+        response=$(curl --write-out "%{http_code}" --silent --output /dev/null -X POST "$DEPLOY_URL/deploy")
+
+        if [ "$response" -ne 200 ]; then
+          echo "Deployment failed with status code $response"
+          exit 1
+        else
+          echo "Deployment triggered successfully!"
+        fi
