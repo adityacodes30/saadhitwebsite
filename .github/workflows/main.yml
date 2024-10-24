@@ -1,4 +1,4 @@
-name: Deploy Next.js Application
+name: Deployr CI/CD
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Trigger deployment
+      - name: Trigger deployment and check status
         id: trigger
         run: |
           RESPONSE=$(curl -s -X POST "${{ env.DEPLOY_DOMAIN }}/deployr/deploy")

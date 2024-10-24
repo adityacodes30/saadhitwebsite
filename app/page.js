@@ -13,7 +13,7 @@ export default function Home() {
       <section className={stl.heroSection}>
         <div className={stl.heroText}>
           <h1>
-           Under construction 6
+           Under construction 7
           </h1>
         </div>
         <Button text="Get Started" />
