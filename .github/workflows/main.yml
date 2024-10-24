@@ -1,4 +1,4 @@
-name: Deployr CI/CD
+name: Deploy Next.js Application
 
 on:
   push:
@@ -16,8 +16,17 @@ jobs:
       - name: Trigger deployment
         id: trigger
         run: |
-          JOB_ID=$(curl -s -X POST "${{ env.DEPLOY_DOMAIN }}/deployr/deploy")
-          echo "job_id=${JOB_ID}" >> $GITHUB_OUTPUT
+          RESPONSE=$(curl -s -X POST "${{ env.DEPLOY_DOMAIN }}/deployr/deploy")
+          echo "Raw response: $RESPONSE"
+          
+          # Store the raw job ID
+          echo "job_id=${RESPONSE}" >> $GITHUB_OUTPUT
+          
+          if [ -z "$RESPONSE" ]; then
+            echo "Failed to get job ID"
+            exit 1
+          fi
+          echo "Successfully received job ID: $RESPONSE"
         
       - name: Check deployment status
         id: check-status
@@ -26,8 +35,11 @@ jobs:
           attempt=1
           
           while [ $attempt -le $MAX_ATTEMPTS ]; do
-            STATUS=$(curl -s "${{ env.DEPLOY_DOMAIN }}/deployr/status?job_id=${{ steps.trigger.outputs.job_id }}")
+            # Construct URL with just the raw job ID
+            STATUS_URL="${{ env.DEPLOY_DOMAIN }}/deployr/status?job_id=${{ steps.trigger.outputs.job_id }}"
+            echo "Checking status at: $STATUS_URL"
             
+            STATUS=$(curl -s -f "$STATUS_URL" || echo "error")
             echo "Attempt $attempt: Status is $STATUS"
             
             if [ "$STATUS" = "completed" ]; then
@@ -36,6 +48,13 @@ jobs:
             elif [ "$STATUS" = "failed" ]; then
               echo "Deployment failed!"
               exit 1
+            elif [ "$STATUS" = "error" ]; then
+              echo "Error fetching status"
+              exit 1
+            fi
+            
+            if [ "$STATUS" != "running" ]; then
+              echo "Unexpected status: $STATUS"
             fi
             
             attempt=$((attempt + 1))
