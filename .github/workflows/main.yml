@@ -1,49 +1,46 @@
-name: CI/CD Pipeline for Deployr
+name: Deployr CI/CD
 
 on:
   push:
-    branches:
-      - main  # Change this if needed
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  DEPLOY_DOMAIN: https://saadhit.com
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18  # Specify your Node.js version
-
-    - name: Install Dependencies
-      run: |
-        npm install
-
-    - name: Build Next.js App
-      run: |
-        npm run build
-      env:
-        CI: true
-
-    - name: Verify Build Success
-      if: failure()
-      run: |
-        echo "Next.js build failed. Stopping deployment."
-        exit 1
-
-    - name: Send Deployment Request to Deployr
-      if: success()
-      run: |
-        DEPLOY_URL="https://saadhit.com/deployr/deploy"
-        echo "Triggering deployment to Deployr at $DEPLOY_URL..."
-        response=$(curl --write-out "%{http_code}" --silent --output /dev/null -X POST "$DEPLOY_URL/deploy")
-
-        if [ "$response" -ne 200 ]; then
-          echo "Deployment failed with status code $response"
+      - name: Trigger deployment
+        id: trigger
+        run: |
+          JOB_ID=$(curl -s -X POST "${{ env.DEPLOY_DOMAIN }}/deployr/deploy")
+          echo "job_id=${JOB_ID}" >> $GITHUB_OUTPUT
+        
+      - name: Check deployment status
+        id: check-status
+        run: |
+          MAX_ATTEMPTS=100  # 5 minutes (100 * 3 seconds)
+          attempt=1
+          
+          while [ $attempt -le $MAX_ATTEMPTS ]; do
+            STATUS=$(curl -s "${{ env.DEPLOY_DOMAIN }}/deployr/status?job_id=${{ steps.trigger.outputs.job_id }}")
+            
+            echo "Attempt $attempt: Status is $STATUS"
+            
+            if [ "$STATUS" = "completed" ]; then
+              echo "Deployment completed successfully!"
+              exit 0
+            elif [ "$STATUS" = "failed" ]; then
+              echo "Deployment failed!"
+              exit 1
+            fi
+            
+            attempt=$((attempt + 1))
+            sleep 3
+          done
+          
+          echo "Timeout: Deployment took too long"
           exit 1
-        else
-          echo "Deployment triggered successfully!"
-        fi
