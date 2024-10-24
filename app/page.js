@@ -13,7 +13,7 @@ export default function Home() {
       <section className={stl.heroSection}>
         <div className={stl.heroText}>
           <h1>
-           CI / CD Testing
+           CI / CD Testing 2
           </h1>
         </div>
         <Button text="Get Started" />
