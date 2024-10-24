@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  DEPLOY_DOMAIN: https://saadhit.com
+  DEPLOY_DOMAIN: https://adityasapra.tech
 
 jobs:
   deploy:
