@@ -27,16 +27,12 @@ jobs:
             exit 1
           fi
           echo "Successfully received job ID: $RESPONSE"
-        
-      - name: Check deployment status
-        id: check-status
-        run: |
+
           MAX_ATTEMPTS=100  # 5 minutes (100 * 3 seconds)
           attempt=1
           
           while [ $attempt -le $MAX_ATTEMPTS ]; do
-            # Construct URL with just the raw job ID
-            STATUS_URL="${{ env.DEPLOY_DOMAIN }}/deployr/status?job_id=${{ steps.trigger.outputs.job_id }}"
+            STATUS_URL="${{ env.DEPLOY_DOMAIN }}/deployr/status?job_id=$RESPONSE"
             echo "Checking status at: $STATUS_URL"
             
             STATUS=$(curl -s -f "$STATUS_URL" || echo "error")
@@ -63,3 +59,5 @@ jobs:
           
           echo "Timeout: Deployment took too long"
           exit 1
+        
+     
